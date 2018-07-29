@@ -25,7 +25,8 @@ import {
 
 // tests
 // const loginUrl = `${process.env.REACT_APP_API_URL}/api/Clients/login`
-const loginUrl = 'https://morning-ridge-81350.herokuapp.com/api/users/login'
+// const loginUrl = 'https://morning-ridge-81350.herokuapp.com/api/users/login'
+const loginUrl = 'https://hidden-falls-59190.herokuapp.com/auth/local'
 
 function loginApi (email, password) {
   return fetch(loginUrl, {
@@ -34,7 +35,8 @@ function loginApi (email, password) {
       'Content-Type': 'application/json',
     },
     // body: JSON.stringify({ email, password }),
-    body: JSON.stringify({ user: { email, password } }),
+    // body: JSON.stringify({ user: { email, password } }),
+    body: JSON.stringify({ identifier: email, password }),
   })
     .then(handleApiErrors)
     .then(response => response.json())

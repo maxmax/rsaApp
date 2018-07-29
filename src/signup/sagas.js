@@ -6,7 +6,6 @@ import {
   SIGNUP_ERROR,
 } from './constants'
 
-
 // The url derived from our .env file
 // const signupUrl = `${process.env.REACT_APP_API_URL}/api/Clients`
 // "birthCountryId": 1,
@@ -17,8 +16,9 @@ import {
 // "password": "qq112233",
 // "phone": "80636801133"
 //
-const signupUrl = 'https://morning-ridge-81350.herokuapp.com/api/users'
-// end tests
+// const signupUrl = 'https://morning-ridge-81350.herokuapp.com/api/users'
+// const signupUrl = 'http://localhost:1337/auth/local/register'
+const signupUrl = 'https://hidden-falls-59190.herokuapp.com/auth/local/register'
 
 function signupApi (username, email, password) {
   // call to the "fetch".  this is a "native" function for browsers
@@ -29,7 +29,7 @@ function signupApi (username, email, password) {
       'Content-Type': 'application/json',
     },
     // body: JSON.stringify({ birthCountryId, birthDate, email, fullName, password }),
-    body: JSON.stringify({ user: { username, email, password } }),
+    body: JSON.stringify({ username, email, password }),
   })
     .then(handleApiErrors) // we'll make this in a second
     .then(response => response.json())
